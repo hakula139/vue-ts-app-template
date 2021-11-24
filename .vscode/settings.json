@@ -1,0 +1,13 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": false,
+  "eslint.format.enable": true,
+  "eslint.packageManager": "yarn",
+  "eslint.validate": [
+    "typescript", //
+    "javascript",
+    "vue"
+  ]
+}

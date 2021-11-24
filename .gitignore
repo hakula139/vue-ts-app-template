@@ -1,0 +1,11 @@
+## Customized
+
+.DS_Store
+
+
+## Vite
+
+node_modules
+dist
+dist-ssr
+*.local
