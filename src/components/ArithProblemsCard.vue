@@ -6,36 +6,39 @@
   >
     <a-space
       size="large"
-      class="container"
+      direction="vertical"
     >
-      <span>
-        <span>请输入题目数量：</span>
-        <a-input-number
-          id="problemsCount"
-          v-model:value="problems.count"
-          :min="1"
+      <a-space size="large">
+        <span>
+          <span>请输入题目数量：</span>
+          <a-input-number
+            id="problemsCount"
+            v-model:value="problems.count"
+            :min="1"
+          />
+        </span>
+        <a-button @click="generateProblems">
+          生成
+        </a-button>
+
+        <time-counter ref="timerRef" />
+      </a-space>
+
+      <a-space direction="vertical">
+        <arith-problem-list-item
+          v-for="(problem, i) in problems.data"
+          :key="`problem${i}`"
+          :data="problem"
+          @start-timer="globalStartTimer"
         />
-      </span>
+      </a-space>
+
       <a-button
         type="primary"
-        @click="generateProblems"
+        @click="submit"
       >
-        生成
+        提交
       </a-button>
-
-      <time-counter ref="timerRef" />
-    </a-space>
-
-    <a-space
-      direction="vertical"
-      class="container py-6"
-    >
-      <arith-problem-list-item
-        v-for="(problem, i) in problems.data"
-        :key="`problem${i}`"
-        :data="problem"
-        @start-timer="globalStartTimer"
-      />
     </a-space>
   </a-card>
 </template>
@@ -78,12 +81,15 @@ export default defineComponent({
       );
     };
 
+    const submit = (): void => {};
+
     return {
       timerRef,
       globalStartTimer,
 
       problems,
       generateProblems,
+      submit,
     };
   },
 });
