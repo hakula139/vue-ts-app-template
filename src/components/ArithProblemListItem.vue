@@ -28,7 +28,7 @@ export default defineComponent({
 
   emits: ['startTimer'],
 
-  setup(props, { emit }) {
+  setup(props, { emit, expose }) {
     type ArithOperatorFunc = (x: number, y: number) => number;
     const operatorMap = new Map<ArithOperator, ArithOperatorFunc>([
       ['+', (x, y) => x + y],
@@ -44,10 +44,14 @@ export default defineComponent({
 
     const startTimer = (): void => emit('startTimer');
 
+    expose({
+      checkAnswer,
+    });
+
     return {
       userInput,
-      checkAnswer,
       startTimer,
+      checkAnswer,
     };
   },
 });

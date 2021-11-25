@@ -9,7 +9,7 @@
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  setup() {
+  setup(_props, { expose }) {
     const timer = ref(0);
 
     let timerHandler = 0;
@@ -34,6 +34,12 @@ export default defineComponent({
       value.toLocaleString('en-US', {
         minimumIntegerDigits: 2,
       });
+
+    expose({
+      timer,
+      resetTimer,
+      startTimer,
+    });
 
     return {
       timer,
