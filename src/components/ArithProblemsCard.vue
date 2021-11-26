@@ -1,8 +1,7 @@
 <template>
   <a-card
     title="小学算术题"
-    :bordered="false"
-    class="container"
+    class="w-full h-full overflow-y-auto"
   >
     <a-space
       size="large"
@@ -43,54 +42,36 @@
   </a-card>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive, ref } from 'vue';
+<script setup lang="ts">
+import { reactive, ref } from 'vue';
 
-import { TimeCounter } from '@/components';
 import { ArithProblem } from '@/types';
 
-export default defineComponent({
-  components: {
-    TimeCounter,
-  },
+const timerRef = ref();
 
-  setup() {
-    const timerRef = ref<InstanceType<typeof TimeCounter>>();
+const globalStartTimer = (): void => {
+  if (!timerRef.value?.timer) {
+    timerRef.value?.startTimer!();
+  }
+};
 
-    const globalStartTimer = (): void => {
-      if (!timerRef.value?.timer) {
-        timerRef.value?.startTimer!();
-      }
-    };
-
-    const problems = reactive({
-      count: 1,
-      data: [] as ArithProblem[],
-    });
-
-    const getRandomNumber = (): number => Math.ceil(Math.random() * 9);
-
-    const generateProblems = (): void => {
-      timerRef.value?.resetTimer!();
-      problems.data = new Array(problems.count).fill(0).map(
-        (): ArithProblem => ({
-          operator: '+',
-          var1: getRandomNumber(),
-          var2: getRandomNumber(),
-        }),
-      );
-    };
-
-    const submit = (): void => {};
-
-    return {
-      timerRef,
-      globalStartTimer,
-
-      problems,
-      generateProblems,
-      submit,
-    };
-  },
+const problems = reactive({
+  count: 1,
+  data: [] as ArithProblem[],
 });
+
+const getRandomNumber = (): number => Math.ceil(Math.random() * 9);
+
+const generateProblems = (): void => {
+  timerRef.value?.resetTimer!();
+  problems.data = new Array(problems.count).fill(0).map(
+    (): ArithProblem => ({
+      operator: '+',
+      var1: getRandomNumber(),
+      var2: getRandomNumber(),
+    }),
+  );
+};
+
+const submit = (): void => {};
 </script>

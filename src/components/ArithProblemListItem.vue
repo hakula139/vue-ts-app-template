@@ -11,48 +11,35 @@
   </a-card>
 </template>
 
-<script lang="ts">
-import {
-  computed, defineComponent, PropType, ref, toRefs,
-} from 'vue';
+<script setup lang="ts">
+import { computed, ref, toRefs } from 'vue';
 
 import { ArithOperator, ArithProblem } from '@/types';
 
-export default defineComponent({
-  props: {
-    data: {
-      type: Object as PropType<ArithProblem>,
-      required: true,
-    },
-  },
+const props = defineProps<{
+  data: ArithProblem;
+}>();
 
-  emits: ['startTimer'],
+const emit = defineEmits<{
+  (event: 'startTimer'): void;
+}>();
 
-  setup(props, { emit, expose }) {
-    type ArithOperatorFunc = (x: number, y: number) => number;
-    const operatorMap = new Map<ArithOperator, ArithOperatorFunc>([
-      ['+', (x, y) => x + y],
-      ['-', (x, y) => x - y],
-      ['*', (x, y) => x * y],
-      ['/', (x, y) => x / y],
-    ]);
+type ArithOperatorFunc = (x: number, y: number) => number;
+const operatorMap = new Map<ArithOperator, ArithOperatorFunc>([
+  ['+', (x, y) => x + y],
+  ['-', (x, y) => x - y],
+  ['*', (x, y) => x * y],
+  ['/', (x, y) => x / y],
+]);
 
-    const { operator, var1, var2 } = toRefs(props.data);
-    const answer = computed(() => operatorMap.get(operator.value)!(var1.value, var2.value));
-    const userInput = ref(0);
-    const checkAnswer = (): boolean => userInput.value === answer.value;
+const { operator, var1, var2 } = toRefs(props.data);
+const answer = computed(() => operatorMap.get(operator.value)!(var1.value, var2.value));
+const userInput = ref(0);
+const checkAnswer = (): boolean => userInput.value === answer.value;
 
-    const startTimer = (): void => emit('startTimer');
+const startTimer = (): void => emit('startTimer');
 
-    expose({
-      checkAnswer,
-    });
-
-    return {
-      userInput,
-      startTimer,
-      checkAnswer,
-    };
-  },
+defineExpose({
+  checkAnswer,
 });
 </script>

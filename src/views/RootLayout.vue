@@ -1,9 +1,5 @@
 <template>
-  <arith-problems-card />
+  <div class="flex justify-center h-screen p-8">
+    <arith-problems-card />
+  </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({});
-</script>
