@@ -16,9 +16,10 @@ module.exports = {
 
   parserOptions: {
     ecmaVersion: 2021,
-    extraFileExtensions: ['.vue'],
+    extraFileExtensions: ['.mjs', '.vue'],
     parser: {
       'js': '@typescript-eslint/parser',
+      'mjs': '@typescript-eslint/parser',
       'ts': '@typescript-eslint/parser',
       '<template>': 'espree',
     },
@@ -68,7 +69,7 @@ module.exports = {
         map: [
           ['@', './src'], //
         ],
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
+        extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.vue'],
       },
     },
   },

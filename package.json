@@ -1,6 +1,6 @@
 {
   "name": "vue-ts-app-template",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -10,6 +10,11 @@
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.1",
     "ant-design-vue": "^3.0.0-alpha.12",
+    "compression": "^1.7.4",
+    "connect-history-api-fallback": "^1.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "serve-favicon": "^2.5.0",
     "vue": "^3.2.16",
     "vue-router": "^4.0.12"
   },
