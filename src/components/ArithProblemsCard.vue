@@ -116,7 +116,7 @@ const openResultModal = (): void => {
   resultModal.visible = true;
   resultModal.score = [...problems.ref.entries()].reduce((totalScore, [key, problemRef]) => {
     const score = Number(problemRef.checkAnswer());
-    console.log(`${key} score: ${problemRef.checkAnswer()}`);
+    console.log(`${key} score: ${score}`);
     return totalScore + score;
   }, 0);
   resultModal.spentTime = timerRef.value?.currentTime() || '--:--:--';
