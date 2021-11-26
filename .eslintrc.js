@@ -1,22 +1,30 @@
 module.exports = {
-  root: true,
-
   env: {
-    browser: true,
-    es2021: true,
-    node: true,
+    'browser': true,
+    'es2021': true,
+    'node': true,
+    'vue/setup-compiler-macros': true,
   },
 
   extends: [
     'plugin:vue/vue3-recommended', //
-    'eslint:recommended',
     'airbnb-base',
+    'airbnb-typescript/base',
   ],
 
+  parser: 'vue-eslint-parser',
+
   parserOptions: {
-    ecmaVersion: 13,
-    parser: '@typescript-eslint/parser',
+    ecmaVersion: 2021,
+    extraFileExtensions: ['.vue'],
+    parser: {
+      'js': '@typescript-eslint/parser',
+      'ts': '@typescript-eslint/parser',
+      '<template>': 'espree',
+    },
+    project: './tsconfig.eslint.json',
     sourceType: 'module',
+    tsconfigRootDir: __dirname,
   },
 
   plugins: [
@@ -44,9 +52,11 @@ module.exports = {
     'no-console': 'off',
     'no-debugger': 'off',
     'no-shadow': 'off',
+    'no-spaced-func': 'off',
     'no-unused-vars': 'off',
     'quote-props': ['error', 'consistent-as-needed'],
     'vue/no-unused-vars': ['warn', { ignorePattern: '^_' }],
+    'vue/script-setup-uses-vars': 'error',
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/no-shadow': ['error'],
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
