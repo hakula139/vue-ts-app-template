@@ -1,14 +1,20 @@
 <template>
-  <span v-if="timer">当前耗时：{{ parse(hour()) }}:{{ parse(minute()) }}:{{ parse(second()) }}</span>
+  <span v-if="timer">当前耗时：{{ currentTime() }}</span>
 </template>
 
 <script setup lang="ts">
 import { defineExpose, ref } from 'vue';
 
+import { padNumber } from '@/composables';
+
 const timer = ref(0);
-const hour = (): number => Math.floor(timer.value / 3600);
-const minute = (): number => Math.floor(timer.value / 60);
-const second = (): number => timer.value % 60;
+
+const currentTime = (): string => {
+  const hour = Math.floor(timer.value / 3600);
+  const minute = Math.floor(timer.value / 60);
+  const second = timer.value % 60;
+  return `${padNumber(hour)}:${padNumber(minute)}:${padNumber(second)}`;
+};
 
 let timerHandler = 0;
 
@@ -24,13 +30,9 @@ const startTimer = (): void => {
   }, 1000);
 };
 
-const parse = (value: number): string =>
-  value.toLocaleString('en-US', {
-    minimumIntegerDigits: 2,
-  });
-
 defineExpose({
   timer,
+  currentTime,
   resetTimer,
   startTimer,
 });

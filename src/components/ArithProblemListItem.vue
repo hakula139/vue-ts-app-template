@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, toRefs } from 'vue';
+import { ref } from 'vue';
 
 import { ArithOperator, ArithProblem } from '@/types';
 
@@ -32,10 +32,9 @@ const operatorMap = new Map<ArithOperator, ArithOperatorFunc>([
   ['/', (x, y) => x / y],
 ]);
 
-const { operator, var1, var2 } = toRefs(props.data);
-const answer = computed(() => operatorMap.get(operator.value)!(var1.value, var2.value));
 const userInput = ref(0);
-const checkAnswer = (): boolean => userInput.value === answer.value;
+const getAnswer = (): number => operatorMap.get(props.data.operator)!(props.data.var1, props.data.var2);
+const checkAnswer = (): boolean => userInput.value === getAnswer();
 
 const startTimer = (): void => emit('startTimer');
 
