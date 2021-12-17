@@ -2,6 +2,8 @@
 
 A template for Vue 3 + TypeScript apps, built with Vite.
 
+Here's a [Demo](https://vue-ts-app-template.vercel.app), deployed on [Vercel](https://vercel.com).
+
 ## Table of Contents
 
 - [Vue 3 + TypeScript + Vite](#vue-3--typescript--vite)
