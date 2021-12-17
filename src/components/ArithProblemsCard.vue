@@ -59,18 +59,11 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { ComponentPublicInstance, reactive, ref } from 'vue';
 
-import { ArithProblemListItem } from '@/components';
-import {
-  ArithOperator, arithOperators, ArithProblem, ArithProblemListItemInstance, TimeCounterExposed,
-} from '@/types';
+import type { ArithProblem, ArithProblemListItemInstance, TimeCounterExposed } from '@/types';
+import { getRandomNumber, getRandomOperator } from '@/composables';
 
-/**
- * Due to a type inference issue in Vue 3.2 with TypeScript, we have to define the type of exposed instances manually
- * here as a workaround.
- * See: https://github.com/vuejs/vue-next/issues/4397
- */
 const timerRef = ref<TimeCounterExposed>();
 
 const globalStartTimer = (): void => {
@@ -85,16 +78,12 @@ const problems = reactive({
   ref: new Map<string, ArithProblemListItemInstance>(),
 });
 
-const setProblemRefs: any = (el: ArithProblemListItemInstance): void => {
+const setProblemRefs = (el: ComponentPublicInstance<any>): void => {
   if (el) {
     const key = el.$.vnode.key as string;
     problems.ref.set(key, el);
   }
 };
-
-const getRandomOperator = (): ArithOperator => arithOperators[Math.floor(Math.random() * arithOperators.length)];
-
-const getRandomNumber = (): number => Math.ceil(Math.random() * 9);
 
 const generateProblems = (): void => {
   timerRef.value?.resetTimer();

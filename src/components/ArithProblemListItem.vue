@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import { ArithOperator, ArithProblem } from '@/types';
+import type { ArithOperator, ArithProblem } from '@/types';
 
 const props = defineProps<{
   data: ArithProblem;
