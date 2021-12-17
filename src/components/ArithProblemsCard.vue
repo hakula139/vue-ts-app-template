@@ -1,6 +1,6 @@
 <template>
   <a-card
-    title="小学算术题"
+    title="Arithmetic Test"
     class="w-full h-full overflow-y-auto"
   >
     <a-space
@@ -8,16 +8,14 @@
       direction="vertical"
     >
       <a-space size="large">
-        <span>
-          <span>请输入题目数量：</span>
-          <a-input-number
-            id="problemsCount"
-            v-model:value="problems.count"
-            :min="1"
-          />
-        </span>
+        <span>Please input the number of problems:</span>
+        <a-input-number
+          id="problemsCount"
+          v-model:value="problems.count"
+          :min="1"
+        />
         <a-button @click="generateProblems">
-          生成
+          Generate
         </a-button>
 
         <time-counter ref="timerRef" />
@@ -38,24 +36,24 @@
         type="primary"
         @click="openResultModal"
       >
-        提交
+        Submit
       </a-button>
     </a-space>
 
     <a-modal
       v-model:visible="resultModal.visible"
-      title="测试结果"
+      title="Result"
     >
       <template #footer>
         <a-button
           key="back"
           @click="closeResultModal"
         >
-          好的
+          OK
         </a-button>
       </template>
-      <p>得分：{{ resultModal.score }} / {{ problems.count }}</p>
-      <p>耗时：{{ resultModal.spentTime }}</p>
+      <p>Score: {{ resultModal.score }} / {{ problems.count }}</p>
+      <p>Time spent: {{ resultModal.spentTime }}</p>
     </a-modal>
   </a-card>
 </template>
@@ -64,7 +62,9 @@
 import { reactive, ref } from 'vue';
 
 import { ArithProblemListItem } from '@/components';
-import { ArithProblem, ArithProblemListItemInstance, TimeCounterExposed } from '@/types';
+import {
+  ArithOperator, arithOperators, ArithProblem, ArithProblemListItemInstance, TimeCounterExposed,
+} from '@/types';
 
 /**
  * Due to a type inference issue in Vue 3.2 with TypeScript, we have to define the type of exposed instances manually
@@ -92,6 +92,8 @@ const setProblemRefs: any = (el: ArithProblemListItemInstance): void => {
   }
 };
 
+const getRandomOperator = (): ArithOperator => arithOperators[Math.floor(Math.random() * arithOperators.length)];
+
 const getRandomNumber = (): number => Math.ceil(Math.random() * 9);
 
 const generateProblems = (): void => {
@@ -99,7 +101,7 @@ const generateProblems = (): void => {
   problems.ref.clear();
   problems.data = new Array(problems.count).fill(0).map(
     (): ArithProblem => ({
-      operator: '+',
+      operator: getRandomOperator(),
       var1: getRandomNumber(),
       var2: getRandomNumber(),
     }),

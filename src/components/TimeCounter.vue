@@ -1,5 +1,5 @@
 <template>
-  <span v-if="timer">当前耗时：{{ currentTime() }}</span>
+  <span v-if="timer">Current time spent: {{ currentTime() }}</span>
 </template>
 
 <script setup lang="ts">

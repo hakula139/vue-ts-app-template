@@ -28,8 +28,6 @@ type ArithOperatorFunc = (x: number, y: number) => number;
 const operatorMap = new Map<ArithOperator, ArithOperatorFunc>([
   ['+', (x, y) => x + y],
   ['-', (x, y) => x - y],
-  ['*', (x, y) => x * y],
-  ['/', (x, y) => x / y],
 ]);
 
 const userInput = ref(0);
