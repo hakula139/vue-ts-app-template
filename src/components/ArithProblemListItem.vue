@@ -1,10 +1,15 @@
 <template>
-  <a-card size="small">
+  <a-card
+    size="small"
+    :bordered="false"
+  >
     <a-space>
-      <span>{{ data.var1 }} {{ data.operator }} {{ data.var2 }} =</span>
+      <span class="text-2xl">{{ data.var1 }} {{ data.operator }} {{ data.var2 }} =</span>
       <a-input-number
         id="userInput"
         v-model:value="userInput"
+        class="text-2xl"
+        size="large"
         @change="startTimer"
       />
     </a-space>

@@ -1,9 +1,10 @@
 <template>
   <a-card
     title="Arithmetic Test"
-    class="w-full h-full overflow-y-auto"
+    class="flex flex-col min-h-full"
   >
     <a-space
+      class="items-center w-full"
       size="large"
       direction="vertical"
     >
@@ -17,7 +18,6 @@
         <a-button @click="generateProblems">
           Generate
         </a-button>
-
         <time-counter ref="timerRef" />
       </a-space>
 

@@ -1,5 +1,8 @@
 <template>
-  <span v-if="timer">Current time spent: {{ currentTime() }}</span>
+  <span
+    v-if="timer"
+    class="text-gray-500"
+  >Current time spent: {{ currentTime() }}</span>
 </template>
 
 <script setup lang="ts">
