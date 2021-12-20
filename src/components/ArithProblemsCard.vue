@@ -61,7 +61,7 @@
 <script setup lang="ts">
 import { ComponentPublicInstance, reactive, ref } from 'vue';
 
-import type { ArithProblem, ArithProblemListItemInstance, TimeCounterExposed } from '@/types';
+import { ArithProblem, ArithProblemListItemInstance, TimeCounterExposed } from '@/types';
 import { getRandomNumber, getRandomOperator } from '@/composables';
 
 const timerRef = ref<TimeCounterExposed>();
