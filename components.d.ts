@@ -7,10 +7,12 @@ declare module 'vue' {
     AButton: typeof import('ant-design-vue/es')['Button'];
     ACard: typeof import('ant-design-vue/es')['Card'];
     AInputNumber: typeof import('ant-design-vue/es')['InputNumber'];
+    ALayout: typeof import('ant-design-vue/es')['Layout'];
+    ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent'];
+    AModal: typeof import('ant-design-vue/es')['Modal'];
     ArithProblemListItem: typeof import('./src/components/ArithProblemListItem.vue')['default'];
     ArithProblemsCard: typeof import('./src/components/ArithProblemsCard.vue')['default'];
     ASpace: typeof import('ant-design-vue/es')['Space'];
-    ClockCircleOutlined: typeof import('@ant-design/icons-vue')['ClockCircleOutlined'];
     TimeCounter: typeof import('./src/components/TimeCounter.vue')['default'];
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <span class="text-gray-500">Timer: {{ currentTime() }}</span>
+  <span class="text-gray-500 whitespace-nowrap">Timer: {{ currentTime() }}</span>
 </template>
 
 <script setup lang="ts">

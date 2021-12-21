@@ -9,10 +9,11 @@
       direction="vertical"
     >
       <a-space size="large">
-        <span>Please input the number of problems:</span>
+        <span class="text-lg whitespace-nowrap">Please input the number of problems:</span>
         <a-input-number
           id="problemsCount"
           v-model:value="problems.count"
+          class="text-lg"
           :min="1"
         />
         <a-button @click="generateProblems">
