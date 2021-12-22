@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
+import { BASE_URL } from '@/configs';
+
 const RootLayout = () => import(/* webpackChunkName: "root-layout" */ '@/views/RootLayout.vue');
 
 const routes: Array<RouteRecordRaw> = [
@@ -11,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(BASE_URL),
   routes,
 });
 
