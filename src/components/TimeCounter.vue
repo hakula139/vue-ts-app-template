@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineExpose, ref } from 'vue';
+import { ref } from 'vue';
 
 import { padNumber } from '@/composables';
 
