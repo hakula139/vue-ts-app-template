@@ -8,18 +8,22 @@
       size="large"
       direction="vertical"
     >
-      <a-space size="large">
-        <span class="text-lg whitespace-nowrap">Please input the number of problems:</span>
-        <a-input-number
-          id="problemsCount"
-          v-model:value="problems.count"
-          class="text-lg"
-          :min="1"
-        />
-        <a-button @click="generateProblems">
+      <a-space>
+        <a-button
+          type="primary"
+          @click="generateProblems"
+        >
           Generate
         </a-button>
-        <time-counter ref="timerRef" />
+        <div class="text-lg">
+          <a-input-number
+            id="problemsCount"
+            v-model:value="problems.count"
+            class="w-16 text-lg"
+            :min="1"
+          />
+          problems
+        </div>
       </a-space>
 
       <a-space direction="vertical">
@@ -32,9 +36,15 @@
         />
       </a-space>
 
+      <time-counter
+        v-show="problems.data.length"
+        ref="timerRef"
+      />
+
       <a-button
-        v-if="problems.data.length"
+        v-show="problems.data.length"
         type="primary"
+        danger
         @click="openResultModal"
       >
         Submit
