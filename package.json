@@ -1,0 +1,25 @@
+{
+  "name": "vue-ts-app-template",
+  "description": "A template for Vue 3 + TypeScript apps, built with Vite",
+  "version": "2.0.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.4"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,ts,tsx,vue}": []
+  }
+}
