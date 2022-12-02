@@ -1,3 +1,7 @@
+### Customized ###
+# Vite generated files
+components.d.ts
+
 ### Node ###
 # Logs
 logs
