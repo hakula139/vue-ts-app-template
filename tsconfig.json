@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
@@ -9,6 +8,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "useDefineForClassFields": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,

@@ -26,6 +26,7 @@ module.exports = {
     'implicit-arrow-linebreak': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'no-console': 'off',
+    'no-param-reassign': 'off',
     'no-spaced-func': 'off',
     'no-underscore-dangle': 'off',
     'quote-props': ['error', 'consistent-as-needed'],
