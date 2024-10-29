@@ -5,14 +5,15 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "build": "vue-tsc --noEmit && vite build",
     "dev": "vite",
-    "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "prepare": "husky"
   },
   "dependencies": {
     "vue": "^3.5.12",
-    "vue-router": "^4.4.5"
+    "vue-router": "^4.4.5",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",

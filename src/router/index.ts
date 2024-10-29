@@ -2,11 +2,13 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 import { BASE_URL } from '@/configs';
 
+const rootLayout = () => import('@/views/RootLayout.vue');
+
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
+    path: '',
     name: 'Root',
-    component: () => import('@/views/RootLayout.vue'),
+    component: rootLayout,
   },
 ];
 
