@@ -1,27 +1,15 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["src/**/*.ts", "src/**/*.vue", "components.d.ts"],
   "compilerOptions": {
-    "composite": true,
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "strict": true,
-    "jsx": "preserve",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "useDefineForClassFields": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
-    "noEmit": true,
-    "sourceMap": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    },
-    "types": ["vite/client"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.vue", "*.ts"],
-  "exclude": ["dist", "node_modules"]
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
 }

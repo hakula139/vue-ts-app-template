@@ -86,7 +86,7 @@ export default tsEslint.config(
         typescript: true,
         node: true,
         alias: {
-          map: [['@/*', './src/*']],
+          map: [['@', './src']],
           extensions: ['.js', '.ts', '.vue'],
         },
       },

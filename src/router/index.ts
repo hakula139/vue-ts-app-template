@@ -1,20 +1,22 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
-import { BASE_URL } from '@/configs';
-
-const rootLayout = () => import('@/views/RootLayout.vue');
-
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: '',
-    name: 'Root',
-    component: rootLayout,
-  },
-];
+import { VITE_APP_TITLE } from '@/configs';
 
 const router = createRouter({
-  history: createWebHistory(BASE_URL),
-  routes,
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '',
+      name: 'Root',
+      meta: { title: 'Home' },
+      component: () => import('@/views/RootLayout.vue'),
+    },
+  ],
+});
+
+router.beforeEach((to, _from, next) => {
+  document.title = `${to.meta.title as string} - ${VITE_APP_TITLE}`;
+  next();
 });
 
 export default router;
