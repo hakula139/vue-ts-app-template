@@ -1,4 +1,4 @@
-# Vue 3 + TypeScript + Vite Template
+# Vue 3 + TypeScript App Template
 
 A template for Vue 3 + TypeScript apps, built with Vite.
 
@@ -16,11 +16,11 @@ Here's a [demo](https://vue-ts-app-template.vercel.app) deployed on [Vercel](htt
 
 ### Installation
 
-Execute `pnpm i` to install all prerequisites, and execute `pnpm run build` to build the project in production mode.
+Execute `pnpm i` to install all prerequisites, and execute `pnpm build` to build the project in production mode.
 
 ### Development
 
-Execute `pnpm run dev` to start a development server. Modifying your code will automatically trigger rebuild and hot reload in your page.
+Execute `pnpm dev` to start a development server. Updating your code will automatically trigger rebuild and hot reload in your page.
 
 ## License
 

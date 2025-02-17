@@ -8,7 +8,6 @@
     "build": "vue-tsc --noEmit && vite build",
     "dev": "vite",
     "preview": "vite preview",
-    "start": "vite serve",
     "prepare": "husky",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
