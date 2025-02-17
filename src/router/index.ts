@@ -10,6 +10,15 @@ const router = createRouter({
       name: 'Root',
       meta: { title: 'Home' },
       component: () => import('@/views/RootLayout.vue'),
+      redirect: { name: 'CounterPage' },
+      children: [
+        {
+          path: 'counter',
+          name: 'CounterPage',
+          meta: { title: 'Counter' },
+          component: () => import('@/views/CounterPage.vue'),
+        },
+      ],
     },
   ],
 });
