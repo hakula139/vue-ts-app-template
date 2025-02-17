@@ -1,13 +1,13 @@
-import { createApp } from 'vue';
+import { createApp, type Component } from 'vue';
+import { createPinia } from 'pinia';
 
 import App from './App.vue';
 import router from './router';
-import { store, key } from './store';
 import './assets/index.css';
 
-const app = createApp(App);
+const app = createApp(App as Component);
 
 app //
   .use(router)
-  .use(store, key)
+  .use(createPinia())
   .mount('#app');
