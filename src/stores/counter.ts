@@ -1,17 +1,18 @@
-// @ts-check
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0);
-  const doubleCount = computed(() => count.value * 2);
+  const localCount = localStorage.getItem('count');
+  const initialCount = localCount ? Number(JSON.parse(localCount)) : 0;
+  const count = ref(initialCount);
+
   const increment = () => {
     count.value++;
+    localStorage.setItem('count', JSON.stringify(count.value));
   };
 
   return {
     count,
-    doubleCount,
     increment,
   };
 });

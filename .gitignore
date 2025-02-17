@@ -5,6 +5,9 @@ components.d.ts
 logs
 *.log*
 
+# Build files
+dist/
+
 # Dependency directories
 node_modules/
 
