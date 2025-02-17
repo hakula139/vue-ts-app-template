@@ -1,15 +1,17 @@
 <template>
   <div class="counter">
-    <a-space>
-      <span class="whitespace-nowrap"> Counter: {{ store.count }} </span>
+    <a-flex
+      align="center"
+      gap="middle"
+    >
+      <span class="text-4xl whitespace-nowrap"> {{ store.count }} </span>
       <a-button
         shape="circle"
-        size="small"
         @click="store.increment"
       >
         +
       </a-button>
-    </a-space>
+    </a-flex>
   </div>
 </template>
 

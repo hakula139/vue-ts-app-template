@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
-#app {
-  @apply h-screen;
+/* Override base SVG style to avoid clashes with Ant Design */
+svg {
+  vertical-align: initial;
 }

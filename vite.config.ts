@@ -13,6 +13,7 @@ export default defineConfig({
       resolvers: [
         AntDesignVueResolver({
           importStyle: false,
+          resolveIcons: true,
         }),
       ],
     }),
