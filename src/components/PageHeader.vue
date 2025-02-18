@@ -1,5 +1,5 @@
 <template>
-  <a-layout-header class="sticky top-0 z-50 px-4">
+  <a-layout-header class="sticky top-0 z-50 !px-4">
     <a-flex
       class="h-full"
       justify="space-between"
